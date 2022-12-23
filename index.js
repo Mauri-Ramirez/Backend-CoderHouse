@@ -23,6 +23,13 @@ class ProductManager {
             await fs.promises.writeFile(this.rutaArchivo, JSON.stringify([{...obj, id: 1}]), "utf-8")
         }
     }
+    
+    async getProducts () {
+        const contenidoArchivo = await this.#leerUnArchivo()
+        //console.log(contenidoArchivo);
+        //return (contenidoArchivo);
+        
+    }
 
     async getProductById(id){
         try {
@@ -66,39 +73,6 @@ class ProductManager {
 
     }
 
-    async getRandom(){
-        try{
-            const contenidoArchivo = await this.#leerUnArchivo()
-            let productoRandom = contenidoArchivo[Math.floor(Math.random() * contenidoArchivo.length)]
-            //return (productoRandom)
-            console.log(productoRandom);
-        }catch(error){
-            throw new Error(error, 'Error al traer producto random');
-        }
-        
-    }
-    
-    
-    async getProducts () {
-        const contenidoArchivo = await this.#leerUnArchivo()
-        //console.log(contenidoArchivo);
-        //return (contenidoArchivo);
-        
-    }
-
-    async deleteAll(){
-        try {
-            await fs.promises.writeFile(this.rutaArchivo, []);
-            console.log('Todos los productos borrados');
-          } catch (error) {
-            throw new Error(error, 'Error al eliminar todos los productos');
-          }
-        }
-
-
-
-
-
     }
         
 
@@ -112,6 +86,4 @@ const contenedor = new ProductManager("./productos.txt")
 //contenedor.getProducts()
 //contenedor.getProductById(3);
 //contenedor.deleteProduct(5);
-//contenedor.deleteAll();
-//contenedor.getRandom();
 contenedor.updateProduct(2, {price:2000})
