@@ -1,25 +1,26 @@
 [
-  {
-    "title": "Pintura 1",
-    "price": 104,
-    "img": "https://images.rawpixel.com/image_1000/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcGQyMDItMTUuanBn.jpg",
-    "id": 1
-  },
-  {
-    "title": "Pintura 2",
-    "price": 120,
-    "img": "https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L3BkMjAyLTA0LmpwZw.jpg",
-    "id": 2
-  },
-  {
-    "title": "Pintura 3",
-    "price": 124,
-    "img": "https://images.rawpixel.com/image_1000/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcGQ0MC0wODEtamouanBn.jpg",
-    "id": 3
-  },
-  {
-    "nombre": "producto 1",
-    "precio": "100",
-    "img": "imggggg",
-    "id": 4
-  },
+    {
+        "title": "Pintura 1",
+        "price": 104,
+        "img": "https://images.rawpixel.com/image_1000/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcGQyMDItMTUuanBn.jpg",
+        "id": 1
+    },
+    {
+        "title": "Pintura 2",
+        "price": 5000,
+        "img": "https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L3BkMjAyLTA0LmpwZw.jpg",
+        "id": 2
+    },
+    {
+        "title": "Pintura 3",
+        "price": 124,
+        "img": "https://images.rawpixel.com/image_1000/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcGQ0MC0wODEtamouanBn.jpg",
+        "id": 3
+    },
+    {
+        "tittle": "producto ejemplo",
+        "price": 5000,
+        "img": "imggggg",
+        "id": 4
+    }
+]

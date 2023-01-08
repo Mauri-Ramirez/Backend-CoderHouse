@@ -8,6 +8,7 @@ class ProductManager {
     async #leerUnArchivo(){
         try{
             const contenido = await fs.promises.readFile(this.rutaArchivo, "utf-8")
+            //console.log(contenido);
             const contenidoParseado = JSON.parse(contenido)
             return contenidoParseado
         } catch(error){
@@ -26,8 +27,8 @@ class ProductManager {
     
     async getProducts () {
         const contenidoArchivo = await this.#leerUnArchivo()
-        //console.log(contenidoArchivo);
-        //return (contenidoArchivo);
+        console.log(contenidoArchivo);
+        return (contenidoArchivo);
         
     }
 
@@ -35,38 +36,44 @@ class ProductManager {
         try {
             const contenidoArchivo = await this.#leerUnArchivo()
             let idFound = contenidoArchivo.find((prod) => prod.id === id);
-            //console.log(idFound);
+            console.log(idFound);
+            return idFound
           } catch (error) {
-            throw new Error(error, "error al traer el producto con el id");
+            console.log(error);
           }
     }
 
-    async updateProduct(id, newPropiedades){
-        
+     async updateProduct(id, product){
+        try{
+
             const contenidoArchivo = await this.#leerUnArchivo()
-            const foundProduct =  await this.getProductById(id)
-
-            const update = {...foundProduct, ...newPropiedades}
-
-            const updateElement = contenidoArchivo.map(e=>{
-                if(e.id === update.id){
-                    return update
-                }else{
-                    return e
-                }
-            })
-
-            const stringProduct = await JSON.stringify(updateElement, null, "utf-8")
-            await this.addProduct(stringProduct)
-            return stringProduct
-    }
+            const tarjetProduct =  await this.getProductById(id)
+            console.log(tarjetProduct);
+            if(tarjetProduct){
+                const updateProduct = {...tarjetProduct, ...product}
+                const updateList = contenidoArchivo.map(prod =>{
+                    if(prod.id === id){
+                        return updateProduct
+                    }else{
+                        return prod
+                    }
+                })
+                const productListString = JSON.stringify(updateList, null, 2)
+                await fs.promises.writeFile(this.rutaArchivo, productListString)
+                console.log("producto modificado");
+            }
+        }
+        catch(error){
+            console.log(err);
+        }    
+    } 
 
     async deleteProduct (id){
         try {
             const contenidoArchivo = await this.#leerUnArchivo()
             const deleted = contenidoArchivo.filter((producto) => producto.id !== id);
             await fs.promises.writeFile(this.rutaArchivo, JSON.stringify(deleted, null, 4));
-            console.log('Deleted');
+            console.log("Removed Product");
           } catch (error) {
             throw new Error(error, 'Error al eliminar producto por id');
           }
@@ -76,14 +83,10 @@ class ProductManager {
     }
         
 
-    
-
-    
-
 const contenedor = new ProductManager("./productos.txt")
-//contenedor.addProduct ({nombre: "producto 1", precio: "100", img:"imggggg"})
-
+//contenedor.addProduct ({tittle: "producto ejemplo", price: "100", img:"imggggg"})
 //contenedor.getProducts()
-//contenedor.getProductById(3);
-//contenedor.deleteProduct(5);
-contenedor.updateProduct(2, {price:2000})
+//contenedor.getProductById(6);
+contenedor.deleteProduct(6);
+//contenedor.updateProduct(4, {price:5000})
+//JSON.parse(`{"nombe":"mauri"}`) EJEMPLO
