@@ -27,7 +27,7 @@ class ProductManager {
     
     async getProducts () {
         const contenidoArchivo = await this.#leerUnArchivo()
-        console.log(contenidoArchivo);
+        //console.log(contenidoArchivo);
         return (contenidoArchivo);
         
     }
@@ -87,6 +87,8 @@ const contenedor = new ProductManager("./productos.txt")
 //contenedor.addProduct ({tittle: "producto ejemplo", price: "100", img:"imggggg"})
 //contenedor.getProducts()
 //contenedor.getProductById(6);
-contenedor.deleteProduct(6);
+//contenedor.deleteProduct(6);
 //contenedor.updateProduct(4, {price:5000})
 //JSON.parse(`{"nombe":"mauri"}`) EJEMPLO
+
+module.exports = ProductManager
