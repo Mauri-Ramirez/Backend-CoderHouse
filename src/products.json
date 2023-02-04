@@ -18,9 +18,25 @@
         "id": 3
     },
     {
-        "tittle": "producto ejemplo",
-        "price": 5000,
-        "img": "imggggg",
-        "id": 4
+        "price": "new price",
+        "id": 4,
+        "title": "new title",
+        "description": "new description",
+        "code": "new code",
+        "status": "new status",
+        "stock": "new stock",
+        "category": "new category",
+        "thumbnails": "new thumbnails []"
+    },
+    {
+        "title": "new title1",
+        "description": "new description1",
+        "price": "new price1",
+        "code": "new code1",
+        "status": "new status1",
+        "category": "new category1",
+        "thumbnails": "new thumbnails []1",
+        "id": "6",
+        "stock": "new stock1"
     }
 ]

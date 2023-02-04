@@ -83,7 +83,7 @@ class ProductManager {
     }
         
 
-const contenedor = new ProductManager("./productos.txt")
+const contenedor = new ProductManager("./products.json")
 //contenedor.addProduct ({tittle: "producto ejemplo", price: "100", img:"imggggg"})
 //contenedor.getProducts()
 //contenedor.getProductById(6);
